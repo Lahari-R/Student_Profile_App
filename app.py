@@ -1,7 +1,7 @@
 import streamlit as st
 from groq import Groq
 st.set_page_config(page_title='STUDENT PROFILE', page_icon='😊' layout='centered')
-st.title('🎓Student Profile App')
+st.title('🎓Student Profile Application')
 st.caption('Developed by Lahari R')
 st.caption('ℹ️Fill in your detailes and click View my profile')
 try:
