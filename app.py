@@ -15,7 +15,7 @@ dept=st.selectbox('Department', ['CSE', 'ISE', 'ECE', 'EEE','CIVIL','MECHANICAL'
 year=st.radio('Current Year',['1st year','2nd year','3rd year','4th year'])
 if st.button('View my profile'):
   if name and usn:
-    st.caption('✅Profile submitted successfully')
+    st.caption('Profile submitted successfully')
     st.text('Name:'+name)
     st.text('Roll:'+usn)
     st.text('Dept:'+dept)
