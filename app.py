@@ -1,43 +1,22 @@
 import streamlit as st
-
-st.set_page_config(
-    page_title="Student Profile Application",
-    page_icon="🎓"
-)
-
-st.title("🎓 Student Profile Application")
-st.subheader("Developed by Lahari R")
-
-st.info("Fill in your details and click View My Profile.")
-
-with st.form("student_form"):
-
-    name = st.text_input("Student Name", placeholder="Enter your name")
-
-    usn = st.text_input("USN / Roll Number", placeholder="Enter roll number")
-
-    department = st.selectbox(
-        "Department",
-        ["CSE", "ISE", "ECE", "EEE", "Mechanical", "Civil"]
-    )
-
-    year = st.radio(
-        "Current Year",
-        ["1st Year", "2nd Year", "3rd Year", "4th Year"]
-    )
-
-    submit = st.form_submit_button("View My Profile")
-
-if submit:
-    if name.strip() and usn.strip():
-
-        st.success("Profile Created Successfully!")
-
-        st.subheader("My Student Profile")
-        st.write("Student Name:", name)
-        st.write("USN / Roll Number:", usn)
-        st.write("Department:", department)
-        st.write("Current Year:", year)
-
-    else:
-        st.warning("Please enter your name and USN.")
+from groq import Groq
+st.set_page_config(page_title='STUDENT PROFILE', page_icon='😊' layout='centered')
+st.title('🎓Student Profile App')
+st.caption('Developed by Lahari R')
+st.caption('ℹ️Fill in your detailes and click View my profile')
+try:
+  client=Groq(api_key=st.secrets['GROQ_API_KEY'])
+except(KeyError,FileNotFoundError):
+  st.error("API key is missing. Add it on advanced settings")
+  st.stop
+name=st.text_input('Student Name','Enter your name')
+usn=st.text_input('USN/ ROLL NUMBER','Enter your USN')
+dept=st.selectbox('Department', ['CSE', 'ISE', 'ECE', 'EEE','CIVIL','MECHANICAL'])
+year=st.radio('Current Year',['1st year','2nd year','3rd year','4th year'])
+if st.button('View my profile'):
+  if name and usn:
+    st.caption('✅Profile submitted successfully')
+    st.text('Name:'+name)
+    st.text('Roll:'+usn)
+    st.text('Dept:'+dept)
+    st.text('Year:'+year)
