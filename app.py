@@ -6,7 +6,7 @@ st.set_page_config(
 )
 
 st.title("🎓 Student Profile Application")
-st.subheader("Developed by Student Name")
+st.subheader("Developed by Lahari R")
 
 st.info("Fill in your details and click View My Profile.")
 
